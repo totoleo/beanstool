@@ -3,9 +3,14 @@ package main
 import (
 	"os"
 
-	"beanstool/cli"
+	"github.com/totoleo/beanstool/cli"
 
 	"github.com/jessevdk/go-flags"
+)
+
+var (
+	VERSION string
+	BUILD   string
 )
 
 func main() {
