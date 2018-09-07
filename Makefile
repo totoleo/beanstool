@@ -27,7 +27,7 @@ all: test build
 
 build: dependencies
 	for cmd in $(COMMANDS); do \
-		$(GOCMD) build -ldflags "-X main.version $(VERSION) -X main.build \"$(BUILD)\"" $${cmd}.go; \
+		$(GOCMD) build -ldflags "-X main.VERSION=$(VERSION) -X main.BUILD=\"$(BUILD)\"" $${cmd}.go; \
 	done
 
 test: dependencies
@@ -48,7 +48,7 @@ packages: clean
 			cd $(BASE_PATH); \
 			mkdir -p $(BUILD_PATH)/$(PROJECT)_$(VERSION)_$${os}_$${arch}; \
 			for cmd in $(COMMANDS); do \
-				GOOS=$${os} GOARCH=$${arch} $(GOCMD) build -ldflags "-X main.version $(VERSION) -X main.build \"$(BUILD)\"" -o $(BUILD_PATH)/$(PROJECT)_$(VERSION)_$${os}_$${arch}/$${cmd} $${cmd}.go ; \
+				GOOS=$${os} GOARCH=$${arch} $(GOCMD) build -ldflags "-X main.VERSION=$(VERSION) -X main.BUILD=\"$(BUILD)\"" -o $(BUILD_PATH)/$(PROJECT)_$(VERSION)_$${os}_$${arch}/$${cmd} $${cmd}.go ; \
 			done; \
 			for content in $(PKG_CONTENT); do \
 				cp -rf $${content} $(BUILD_PATH)/$(PROJECT)_$(VERSION)_$${os}_$${arch}/; \

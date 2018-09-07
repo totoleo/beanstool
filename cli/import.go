@@ -1,12 +1,12 @@
 package cli
 
 import (
-	"fmt"
-	"os"
 	"bufio"
-	"time"
-	"math/rand"
+	"fmt"
 	"github.com/kr/beanstalk"
+	"math/rand"
+	"os"
+	"time"
 )
 
 type ImportCommand struct {
